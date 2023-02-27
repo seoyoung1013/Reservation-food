@@ -17,7 +17,7 @@
     하나라도 존재하면 이후의 코드가 실행 -->
     
 	   <table border="1">
-	   		<tr><th>ID</th><th>비밀번호</th><th>이름</th><th>이메일</th></tr>
+	   		<tr><th>ID</th><th>비밀번호</th><th>이름</th><th>이메일</th><th>주소</th><th>전화번호</th></tr>
 			
 			<%   for(int i=0; i<list.size(); i++){
 				// 회원의 수만큼 반복 실행하라는 의미
@@ -27,6 +27,8 @@
 			            <td><%=member.getPasswd() %></td>
 			            <td><%=member.getName() %></td>
 			            <td><%=member.getMail() %></td>
+			            <td><%=member.getaddress()%></td>
+			            <td><%=member.getphone() %></td>
 			       </tr>
 			       <!-- ArrayList에서 추출한 MemberVO  객체의 멤버변수들을 getter 메소드로 추출하여 출력하는 코드 -->
 			       

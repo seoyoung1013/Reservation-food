@@ -20,10 +20,13 @@ public class MemberInsertController implements Controller {
 		String passwd = request.getParameter("passwd");
 		String name = request.getParameter("name");
 		String mail = request.getParameter("mail");
+		String address = request.getParameter("address");
+		String phone = request.getParameter("phone");
+		
 		// 클라이언트가 보낸 질의 문자열들을 각각 추출하여 지역변수들에 저장
 		
 		// 유효성 체크
-		if (id.isEmpty() || passwd.isEmpty() || name.isEmpty() || mail.isEmpty()) {
+		if (id.isEmpty() || passwd.isEmpty() || name.isEmpty() || mail.isEmpty() || address.isEmpty() || phone.isEmpty()) {
 			// isEmpty() 메소드는 입력값이 없을 때 true반환
 			// 하나라도 입력하지 않았으면 id, passwd, name, mail 중 하나라도 입력하지 않았으면 true 반환
 
@@ -42,6 +45,8 @@ public class MemberInsertController implements Controller {
 		member.setPasswd(passwd);
 		member.setName(name);
 		member.setMail(mail);
+		member.setaddress(address);
+		member.setphones(phone);
 		// MemberVO 객체를 생성한 후 클라이언트로부터 전달된 입력값들을 setter 메소드를 호출하여 MemberVO 객체의 멤버변수에 저장
 		//이런 작업을 데이터 바인딩이라고 함
 

@@ -1,12 +1,24 @@
 package com.dev.vo;
 
 public class MemberVO {
-
+	
+	private String user_id;
 	private String id;
-	private String passwd;
+	private String password;
 	private String name;
-	private String mail;
+	private String email;
+	private String address;
+	private String phone;
 
+	public String getuser_Id() {
+		return user_id;
+	}
+
+	public void setuser_Id(String user_id) {
+		this.user_id = user_id;
+	}
+
+	
 	public String getId() {
 		return id;
 	}
@@ -16,11 +28,11 @@ public class MemberVO {
 	}
 
 	public String getPasswd() {
-		return passwd;
+		return password;
 	}
 
-	public void setPasswd(String passwd) {
-		this.passwd = passwd;
+	public void setPasswd(String password) {
+		this.password = password;
 	}
 
 	public String getName() {
@@ -32,11 +44,31 @@ public class MemberVO {
 	}
 
 	public String getMail() {
-		return mail;
+		return email;
 	}
 
-	public void setMail(String mail) {
-		this.mail = mail;
+	public void setMail(String email) {
+		this.email = email;
 	}
+	
+	public String getaddress() {
+		return address;
+	}
+
+	public void setaddress(String address) {
+		this.address = address;
+	}
+	public String getphone() {
+		return phone;
+	}
+
+	public void setphones(String phone) {
+		this.phone = phone;
+	}
+	
+		
+	
+	
+	
 
 }

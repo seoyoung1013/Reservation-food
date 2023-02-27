@@ -74,13 +74,18 @@ public class MemberDAO {
 			// memberInsert()는 MemberVO 객체를 인자로 받아 member 테이블에 삽입하는 메소드
 			// conn = connect(); -> connect() 메소드를 실행하여 Connection 객체를 반환받음
 			
-			pstmt = conn.prepareStatement("insert into member values(?,?,?,?)");
+			pstmt = conn.prepareStatement("insert into member values(member_seq.nextval,?,?,?,?,?,?)");
 			// prepareStatement 객체를 사용하여 member테이블에 insert 명령문을 실행하기 위해 SQL 문장을 생성
 			// ?는 나중에 별도로 값을 지정하기 위해 사용
+			
 			pstmt.setString(1, member.getId());
 			pstmt.setString(2, member.getPasswd());
 			pstmt.setString(3, member.getName());
 			pstmt.setString(4, member.getMail());
+			pstmt.setString(5, member.getaddress());
+			pstmt.setString(6, member.getphone());
+			
+			
 			// pstmt에 ?처리했던 부분에 값을 설정하는 부분
 			// 1,2,3,4는 ?의 순서를 의미
 			// 각 자리에 member의 getter 메소드를 사용하여 MemberVO 객체의 멤버변수들의 값들을 설정
@@ -116,10 +121,10 @@ public class MemberDAO {
 			
 			if (rs.next()) {
 				member = new MemberVO();
-				member.setId(rs.getString(1));
-				member.setPasswd(rs.getString(2));
-				member.setName(rs.getString(3));
-				member.setMail(rs.getString(4));
+				member.setId(rs.getString(2));
+				member.setPasswd(rs.getString(3));
+				member.setName(rs.getString(4));
+				member.setMail(rs.getString(5));
 			}
 			// rs.next()는 메소드는 추출된 레코드가 있을 때만 true값을 반환
 			//true면, 즉. 클라이언트로부터 전달받은 id에 해당하는 레코드를 추출하였으면 MemberVO 객체 하나를 생성 후
@@ -143,14 +148,17 @@ public class MemberDAO {
 
 		try {
 			conn = connect();
-			pstmt = conn.prepareStatement("update member set passwd=?,name=?,mail=? where id=?");
+			pstmt = conn.prepareStatement("update member set passwd=?,name=?,mail=?,address=?,phone=? where id=?");
 			// 회원에 대한 정보를 수정하는 sql문
 			//id를 제외한 모든 정보를 수정하며, 수정하는 레코드의 조건은 클라이언트가 입력한 id와 동일한 id를 찾아서 수정
 			
-			pstmt.setString(1, member.getPasswd());
-			pstmt.setString(2, member.getName());
-			pstmt.setString(3, member.getMail());
-			pstmt.setString(4, member.getId());
+			pstmt.setString(2, member.getId());
+			pstmt.setString(3, member.getPasswd());
+			pstmt.setString(4, member.getName());
+			pstmt.setString(5, member.getMail());
+			pstmt.setString(6, member.getaddress());
+			pstmt.setString(7, member.getphone());
+			
 			// update문장을 가지고 있는 pstmt의 ?자리에 member 객체의 멤버변수를 설정
 			// 모든 ? 자리에 값을 설정해야만 실행 가능한 sql문이 된다.
 			
@@ -221,10 +229,13 @@ public class MemberDAO {
 				member = new MemberVO();
 				// rs.next() 메소드에 의해 ResultSet의 커서가 새로운 레코드를 가리킬 때마다 새로운 MemberVO 객체를 생성
 				
-				member.setId(rs.getString(1));
-				member.setPasswd(rs.getString(2));
-				member.setName(rs.getString(3));
-				member.setMail(rs.getString(4));
+				member.setId(rs.getString(2));
+				member.setPasswd(rs.getString(3));
+				member.setName(rs.getString(4));
+				member.setMail(rs.getString(5));
+				member.setaddress(rs.getString(6));
+				member.setphones(rs.getString(7));
+				
 				// 새로 생성한 MemberVO 객체에 rs의 칼럼값들을 getter 메소드로 추출
 				// 추출한 값들을 MemberVO의 setter 메소드를 이용하여 MemberVO 객체에 정보를 바인딩
 				
