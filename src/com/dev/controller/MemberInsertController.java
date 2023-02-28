@@ -46,7 +46,7 @@ public class MemberInsertController implements Controller {
 		member.setName(name);
 		member.setMail(mail);
 		member.setaddress(address);
-		member.setphones(phone);
+		member.setphone(phone);
 		// MemberVO 객체를 생성한 후 클라이언트로부터 전달된 입력값들을 setter 메소드를 호출하여 MemberVO 객체의 멤버변수에 저장
 		//이런 작업을 데이터 바인딩이라고 함
 

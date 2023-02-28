@@ -42,7 +42,9 @@ ${error}
 			이름 : <input type="text" name="name" value="${member.name}"> <br>
 			E-Mail : <input type="text" name="mail" value="${member.mail}"> <br>
 			<!-- 비밀번호, 이름, E-mail 입력상자를 만들고 각각 초깃값을 member 객체의 멤버변수로 지정 -->
-			
+			주소 : <input type="text"  name="address" value="${member.address}" ><br>
+			전화번호 : <input type="text" name="phone" value="${member.phone}"> <br>
+
 			<input type="submit"  value="수정" >
 		</form>
 

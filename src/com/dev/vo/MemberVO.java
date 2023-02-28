@@ -62,7 +62,7 @@ public class MemberVO {
 		return phone;
 	}
 
-	public void setphones(String phone) {
+	public void setphone(String phone) {
 		this.phone = phone;
 	}
 	

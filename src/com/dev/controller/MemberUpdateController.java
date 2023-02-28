@@ -15,9 +15,11 @@ public class MemberUpdateController implements Controller {
 		String passwd = request.getParameter("passwd");
 		String name = request.getParameter("name");
 		String mail = request.getParameter("mail");
-
+		String address = request.getParameter("address");
+		String phone = request.getParameter("phone");
+		
 		// 유효성 체크
-		if (id.isEmpty() || passwd.isEmpty() || name.isEmpty() || mail.isEmpty()) {
+		if (id.isEmpty() || passwd.isEmpty() || name.isEmpty() || mail.isEmpty() || address.isEmpty() || phone.isEmpty()) {
 			request.setAttribute("error", "모든 항목을 빠짐없이 입력해주시기 바랍니다!");
 			HttpUtil.forward(request, response, "/memberUpdate.jsp");
 			return;
@@ -29,6 +31,8 @@ public class MemberUpdateController implements Controller {
 		member.setPasswd(passwd);
 		member.setName(name);
 		member.setMail(mail);
+		member.setaddress(address);
+		member.setphone(phone);
 
 		// Service 객체의 메소드 호출
 		MemberService service = MemberService.getInstance();
