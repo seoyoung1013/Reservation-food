@@ -64,6 +64,36 @@ public class MemberDAO {
 			}
 		}
 	} // close
+	
+	public void memberLogin(MemberVO member) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			conn = connect();
+			pstmt = conn.prepareStatement("select password from member where id=?");
+			pstmt.setString(1, member.getId());
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				if(rs.getString(3).equals(member.getPasswd())) {
+					member = new MemberVO();
+					member.setId(rs.getString(2));
+					member.setPasswd(rs.getString(3));
+					member.setName(rs.getString(4));
+					member.setMail(rs.getString(5));
+					member.setaddress(rs.getString(6));
+					member.setaddress(rs.getString(7));
+				}
+			}
+		}catch(Exception ex) {
+			System.out.println("오류발생 : " + ex);
+		}finally {
+			close(conn, pstmt);
+		}
+	}
 
 	public void memberInsert(MemberVO member) {
 		Connection conn = null;
@@ -125,6 +155,8 @@ public class MemberDAO {
 				member.setPasswd(rs.getString(3));
 				member.setName(rs.getString(4));
 				member.setMail(rs.getString(5));
+				member.setaddress(rs.getString(6));
+				member.setphone(rs.getString(7));
 			}
 			// rs.next()는 메소드는 추출된 레코드가 있을 때만 true값을 반환
 			//true면, 즉. 클라이언트로부터 전달받은 id에 해당하는 레코드를 추출하였으면 MemberVO 객체 하나를 생성 후

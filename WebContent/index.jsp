@@ -4,7 +4,8 @@
 <title>회원 정보 관리</title>
 </head>
 <body>
-	<a href="memberInsert.jsp">회원 정보 생성</a> <p>
+	<a href="memberLogin.jsp">로그인</a>
+	<a href="memberInsert.jsp">회원 가입</a> <p>
 	<a href="memberSearch.jsp">회원 정보 검색</a> <p>
 	<a href="memberUpdate.jsp">회원 정보 수정</a> <p>
 	<a href="memberDelete.jsp">회원 정보 삭제</a> <p>

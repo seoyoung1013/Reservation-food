@@ -32,6 +32,10 @@ public class MemberService {
 	// 외부에서 MemberServie.getInstance()로 사용 가능
 	// MemberServie 객체가 필요할 때 getInstance() 메소드를 사용해 이미 만들어진 객체를 추출하여 사용
 
+	public void memberLogin(MemberVO member) {
+		dao.memberLogin(member);
+	}
+	
 	public void memberInsert(MemberVO member) {
 		dao.memberInsert(member);
 	}
