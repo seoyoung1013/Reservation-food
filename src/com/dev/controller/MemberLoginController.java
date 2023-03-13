@@ -37,8 +37,12 @@ public class MemberLoginController implements Controller {
 		
 		// Output View 페이지로 이동
 		if (member == null) request.setAttribute("result", "검색된 아이디가 없습니다!");
+		
+		else if (member.getPasswd() != passwd) request.setAttribute("result", "비밀번호가 틀렸습니다!");
+		
 		request.setAttribute("member", member);
 		HttpUtil.forward(request, response, "/result/memberLoginOutput.jsp");
+		
 		// service.memberInsert(member) 메소드가 종료된 후 실행
 		// 이 메소다가 종료되었다는 것은 서비스 처리가 완료되었다는 의미
 		// 요청된 서비스가 완료되면, 처리결과 페이지(출력 뷰 페이지)로 이동
