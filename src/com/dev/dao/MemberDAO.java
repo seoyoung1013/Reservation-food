@@ -78,7 +78,7 @@ public class MemberDAO {
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-				if(rs.getString(3).equals(member.getPasswd())) {
+				if(rs.getString(2).equals(member.getPasswd())) {
 					member = new MemberVO();
 					member.setId(rs.getString(2));
 					member.setPasswd(rs.getString(3));

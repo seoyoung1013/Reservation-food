@@ -4,7 +4,7 @@
 <title>회원 정보 관리</title>
 </head>
 <body>
-	<a href="memberLogin.jsp">로그인</a>
+	<a href="memberLogin.jsp">로그인</a> <p>
 	<a href="memberInsert.jsp">회원 가입</a> <p>
 	<a href="memberSearch.jsp">회원 정보 검색</a> <p>
 	<a href="memberUpdate.jsp">회원 정보 수정</a> <p>
